@@ -13,6 +13,7 @@ Martin Janda
 Jairo Oviedo  
 Peter Švarny(Supervisor)
 ## CHANGELOG	
+- Info. for park Frantiskanska Zahrada, Obora Hvezda, Kampa and Kinskeho Zahrada added
 - Main loop created
 - Info. for park Bertramka added
 ## NEWS	
