@@ -79,11 +79,19 @@
 (defn metro_line? [park metro_line] (contains? (metro park) metro_line))
 
 ;;Bot
-(defn process_input [input]
-  (println "Machine says:" input))
+(defn process_input_question [input]
+  (println "Thats a question."))
+
+(defn process_input_statement [input]
+  (println "Thats a statement."))
+
+(defn process_input_main [input]
+  (if (= (re-find (re-pattern "\\Q?\\E") input) nil)
+    (process_input_statement input)
+    (process_input_question input)))
 
 (defn dialougue_loop []
   (loop [user_in (read-line)]
-    (process_input user_in)
+    (process_input_main user_in)
     (when (not (= user_in "Goodbye"))
       (recur (read-line)))))
