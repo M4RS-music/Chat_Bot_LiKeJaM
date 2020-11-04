@@ -7,7 +7,7 @@
       :Sport_Ground false
       :Playground false
       :MHD {
-              :Tram [4, 7, 9, 10, 58, 59]
+              :Tram #{4, 7, 9, 10, 58, 59}
               :Bus nil
               :Metro nil}
       :GPS "50°4’15.00’’ N, 14°23’42.00’’ E"
@@ -23,6 +23,62 @@
               :Off_Hours "9:30-16"}
       :Website "https://www.praha.eu/jnp/cz/co_delat_v_praze/parky/bertramka/index.html"}})
 
+;;Predicates
+(defn WC? [park]
+  (:WC (park parks_info)))
+
+(defn bike? [park]
+  (:Bike (park parks_info)))
+
+(defn rolerblades? [park]
+  (:Rolerblades (park parks_info)))
+
+(defn sport_ground? [park]
+  (:Sport_Ground (park parks_info)))
+
+(defn playground? [park]
+  (:Playground (park parks_info)))
+
+(defn parking? [park]
+  (not (nil? (:Parking (park parks_info)))))
+
+(defn food? [park]
+  (not (nil? (:Food (park parks_info)))))
+
+;;Get info
+(defn parking_info [park]
+  (when (parking? park)
+    [(:Type (:Parking (park parks_info))), (:Where (:Parking (park parks_info)))]))
+
+(defn trail_type [park]
+  (:Trail_Type (park parks_info)))
+
+(defn gps_coordinates [park]
+  (:GPS (park parks_info)))
+
+(defn owner [park]
+  (:Owner (park parks_info))))
+
+(defn on_hours [park]
+  (:On_Hours (:Hours (park parks_info))))
+(defn off_hours [park]
+  (:Off_Hours (:Hours (park parks_info))))
+
+(defn on_season [park]
+  (:On_Season (:Hours (park parks_info))))
+(defn off_season [park]
+  (:Off_Season (:Hours (park parks_info))))
+
+(defn tram [park] (:Tram (:MHD (park parks_info))))
+(defn tram_line? [park tram_no] (contains? (tram park) tram_no))
+
+(defn bus [park] (:Bus (:MHD (park parks_info))))
+(defn bus_line? [park bus_no] (contains? (bus park) bus_no))
+
+(defn metro [park] (:Metro (:MHD (park parks_info))))
+(defn metro_line? [park metro_line] (contains? (metro park) metro_line))
+
+;;Bot
 (defn process_input [input]
   (println "Machine says:" input))
 
