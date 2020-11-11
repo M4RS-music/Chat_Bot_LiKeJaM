@@ -10,14 +10,14 @@
 		       :Sport_Ground false
 		       :Playground false
 		       :MHD {
-				    :Tram #{4, 7, 9, 10, 58, 59}
-				    :Bus nil
-				    :Metro nil
+    				    :Tram #{4, 7, 9, 10, 58, 59}
+    				    :Bus nil
+    				    :Metro nil
 				    }
 		       :GPS "50°4’15.00’’ N, 14°23’42.00’’ E"
 		       :Parking {
-					:Type "undeground"
-					:Where "OC Smichov"
+      					:Type "undeground"
+      					:Where "OC Smichov"
 					}
 		       :Trail_Type "cobblestone"
 		       :Owner "Městská část Praha 5 a spol. Comenius"
@@ -55,7 +55,7 @@
 							:Off_Hours nil}
 					 :Website "https://www.praha.eu/jnp/cz/co_delat_v_praze/parky/frantiskanska_zahrada/frantiskanska_text.html"
 					 }
-	  
+
 	  :Obora_hvezda {
 				:Food true
 				:WC true
@@ -73,9 +73,9 @@
 				:GPS "50°5’2.798’’ N, 14°19’45.529’’ E"
 				:Parking {
 						 :Type "on street"
-						 :Where "About 8 places in front of the Libock Gate, or freely on U Star street"
+						 :Where "at Libock Gate, or freely on U Star street"
 						 }
-				:Trail_Type "Paved and forest"
+				:Trail_Type "paved and forest"
 				:Owner "National Literature Memorial and Capital City of Prague"
 				:Hours { ;;User will ask "When open", machine ask "what month" then machine gives either on or off hrs
 					       :On_Season ["May", "June", "July", "August", "September", "November", "December", "January", "February", "March"]
@@ -84,7 +84,7 @@
 					       :Off_Hours "10-18"}
 				:Website "https://www.praha.eu/jnp/cz/co_delat_v_praze/parky/hvezda/obora_hvezda.html"
 				}
-	  
+
 	  :Kampa {
 			 :Food true
 			 :WC true
@@ -110,7 +110,7 @@
 					:Off_Hours nil}
 			 :Website "https://www.praha.eu/jnp/cz/co_delat_v_praze/parky/kampa/kampa_text.html"
 			 }
-	  
+
 	  :Kinskeho_zahrada {
 				    :Food true
 				    :WC true
@@ -143,6 +143,29 @@
 	  }
 	)
 
+;;Responses
+
+(def responses ;;for multiple dp items (parking, MHD, hours) create a vector that allows for the process_input
+               ;;function to insert the datapoints in between the strings. (see :parking_yes for eg.)
+  {
+    :food_yes {
+      :1 "Yes there are food vendors at this park."
+      :2 "Yes food is available there."
+    }
+    :food_no {
+      :1 "No there is no food at this park."
+      :2 "There are not any food vendors there."
+    }
+    :parking_yes {
+      :1 ["Yes there is ", "parking", "available at", "."]
+      :2 ["Sure! ", "parking", "is available at", "."]
+    }
+    :parking_no {
+      :1 "There is no information on parking for this park."
+      :2 "No there is not parking."
+    }
+    })
+
 ;;Predicates
 (defn food? [park]
   (:Food (park parks_info)))
@@ -166,7 +189,7 @@
   (not (nil? (:Parking (park parks_info)))))
 
 (defn food? [park]
-  (not (nil? (:Food (park parks_info)))))
+  (:Food (park parks_info)))
 
 ;;Get info
 (defn parking_info [park]
