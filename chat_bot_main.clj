@@ -224,6 +224,10 @@
 (defn metro [park] (:Metro (:MHD (park parks_info))))
 (defn metro_line? [park metro_line] (contains? (metro park) metro_line))
 
+;;UIE
+(defn string_to_vector [string]
+  nil)
+
 ;;Bot
 (defn process_input_question [input]
   (println "Thats a question."))
