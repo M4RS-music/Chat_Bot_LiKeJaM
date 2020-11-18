@@ -1,3 +1,7 @@
+;;Requirements
+(require '[clojure.string :as str])
+
+;;Data Structures
 (def parks_info
   {
 	  :Bertramka {
@@ -191,6 +195,9 @@
 (defn food? [park]
   (:Food (park parks_info)))
 
+(defn dogs? [park]
+  (:Dogs (park parks_info))))
+
 ;;Get info
 (defn parking_info [park]
   (when (parking? park)
@@ -226,7 +233,7 @@
 
 ;;UIE
 (defn string_to_vector [string]
-  nil)
+  (str/split (str/replace string (re-pattern "^0-9A-Za-z") "") #" "))
 
 ;;Bot
 (defn process_input_question [input]
