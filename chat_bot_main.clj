@@ -234,7 +234,7 @@
 
 ;;UIR
 (defn normalize_string [string]
-  (re-matches #".*^.*[A-Za-z]" (str/lower-case string)))
+  (re-matches #".*[A-Za-z]" (str/lower-case string)))
 
 (defn string_to_vector [string]
   (str/split string #" "))
