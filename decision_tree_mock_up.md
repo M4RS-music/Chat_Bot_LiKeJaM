@@ -1,5 +1,5 @@
 *contains keyword*
-  food
+  food #{"refreshments", "eat", "concessions"}
     is asking if food is at the park
       yes
         run food?

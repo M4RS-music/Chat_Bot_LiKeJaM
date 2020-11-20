@@ -1,5 +1,6 @@
 ;;Requirements
 (require '[clojure.string :as str])
+(require '[Chat_Bot_LiKeJaM.decision_tree :as dtree])
 
 ;;Data Structures
 (def parks_info
@@ -231,9 +232,12 @@
 (defn metro [park] (:Metro (:MHD (park parks_info))))
 (defn metro_line? [park metro_line] (contains? (metro park) metro_line))
 
-;;UIE
+;;UIR
+(defn normalize_string [string]
+  (re-matches #".*^.*[A-Za-z]" (str/lower-case string)))
+
 (defn string_to_vector [string]
-  (str/split (str/replace string (re-pattern "^0-9A-Za-z") "") #" "))
+  (str/split string #" "))
 
 ;;Bot
 (defn process_input_question [input]
