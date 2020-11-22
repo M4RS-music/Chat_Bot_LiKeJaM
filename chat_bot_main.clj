@@ -193,8 +193,6 @@
 (defn parking? [park]
   (not (nil? (:Parking (park parks_info)))))
 
-(defn food? [park]
-  (:Food (park parks_info)))
 
 (defn dogs? [park]
   (:Dogs (park parks_info))))
