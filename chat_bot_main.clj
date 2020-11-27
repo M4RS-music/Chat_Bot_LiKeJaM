@@ -193,11 +193,11 @@
 	  :1 "No, you can't ride a bike in this park."
 	  :2 "Riding a bike in this park is not allowed."
 	}
-    :rolerblades_yes {
-      :1 "Yes, riding rolerblades is allowed there."
+    :rollerblades_yes {
+      :1 "Yes, riding rollerblades is allowed there."
     }
-    :rolerblades_no {
-      :1 "No, you cannot ride rolerblades at this park."
+    :rollerblades_no {
+      :1 "No, you cannot ride rollerblades at this park."
       :2 "There are not any food vendors there."
     }
 	:sport_ground_yes {
@@ -254,7 +254,7 @@
 	  :1 ["There is no metro that goes there, try taking the bus number", "to reach the park"]
 	}
 	tram_bus_metro_yes{
-	  :1 ["This park can be reache by tram number ", ", bus number ","or by metro line","."]
+	  :1 ["This park can be reached by tram number ", ", bus number ","or by metro line","."]
 	}
 	tram_bus_metro_no{
 	  :1 "The only way to go to this park is by walking, sorry."]
@@ -269,7 +269,7 @@
 	  :1 ["The park stays closed during","."]
 	}
     off_season_response{
-	  :1["The park is closed during the months oof","."]
+	  :1["The park is closed during the months of","."]
 	}
     })
 
