@@ -1,6 +1,5 @@
 ;;Requirements
 (require '[clojure.string :as str])
-(require '[Chat_Bot_LiKeJaM.decision_tree :as dtree])
 
 ;;Data Structures
 (def parks_info
@@ -204,72 +203,72 @@
 	  :1 "Yes, there is a sports ground there."
 	  :2 "A sports ground is located at this park."
 	}
-	:sport_ground_no{
+	:sport_ground_no {
       :1 "No, there is not a sports ground at this park."
 	}
 	:playground_yes {
 	  :1 "Yes, the park has a playground."
 	  :2 "Yes, a playground is located in this park."
 	}
-    :playground_no {
+  :playground_no {
       :1 "No, this park does not have a playground."
 	}
-	tram_yes {
+	:tram_yes {
 	  :1 ["To reach this park you can take the tram number ","."]
 	  :2 ["You can go to this park by taking the tram number ", "."]
 	}
-	bus_yes {
+	:bus_yes {
 	  :1 ["This park can be reached by bus number ", "."]
 	  :2 ["You can get the bus number "," to go to this park."]
 	}
-    metro_yes{
+  :metro_yes {
 	  :1 ["This park can be reached by metro line ", "."]
 	  :2 ["You can get the metro line "," to go to this park."]
 	}
-    tram_bus_yes{
+  :tram_bus_yes {
 	  :1 ["You can go to this park by tram number "," or by bus ","."]
 	}
-	tram_metro_yes{
+	:tram_metro_yes {
 	  :1 ["This park can be reached either by tram number", "or the metro line "," ."]
 	}
-	bus_metro_yes{
+	:bus_metro_yes {
 	  :1 ["You can take the bus number ", "or the metro line ","."]
 	}
-	tram_no_bus_yes{
+	:tram_no_bus_yes {
 	  :1 ["Unfortunately, you can not go to this park by tram but you can get bus number ", "."]
 	}
-	tram_no_metro_yes{
+	:tram_no_metro_yes {
 	  :1 ["Unfortunately, this park cannot be reached by tram but you can take the metro line", "to get there."]
 	}
-	bus_no_tram_yes{
+	:bus_no_tram_yes {
 	  :1 ["No, you cannot take the bus to get here but you can get the tram number", "to go to this park."]
 	}
-	bus_no_metro_yes{
+	:bus_no_metro_yes {
 	  :1 ["No, the park is not reached by the bus but you can get the metro line", "."]
 	}
-	metro_no_tram_yes{
+	:metro_no_tram_yes {
 	  :1 ["The metro doesn't get there, try taking the tram number", "to get to the park."]
 	}
-	metro_no_bus_yes{
+	:metro_no_bus_yes {
 	  :1 ["There is no metro that goes there, try taking the bus number", "to reach the park"]
 	}
-	tram_bus_metro_yes{
-	  :1 ["This park can be reache by tram number ", ", bus number ","or by metro line","."]
+	:tram_bus_metro_yes {
+	  :1 ["This park can be reache by tram number ", ", bus number ", "or by metro line", "."]
 	}
-	tram_bus_metro_no{
+	:tram_bus_metro_no {
 	  :1 "The only way to go to this park is by walking, sorry."]
 	}
-	on_hours_response{
-	  :1 ["The park is open during","."]
+	:on_hours_response {
+	  :1 ["The park is open during", "."]
 	}
-	on_season_response{
-      :1 ["The park stays open during the months of","."]
+	:on_season_response {
+      :1 ["The park stays open during the months of", "."]
 	}
-	off_hours_response{
-	  :1 ["The park stays closed during","."]
+	:off_hours_response {
+	  :1 ["The park stays closed during", "."]
 	}
-    off_season_response{
-	  :1["The park is closed during the months oof","."]
+  :off_season_response {
+	  :1["The park is closed during the months of", "."]
 	}
     })
 
@@ -339,20 +338,104 @@
 (defn string_to_vector [string]
   (str/split string #" "))
 
-;;Bot
-(defn process_input_question [input]
-  (println "Thats a question."))
-
-(defn process_input_statement [input]
-  (println "Thats a statement."))
-
-(defn process_input_main [input]
-  (if (= (re-find (re-pattern "\\Q?\\E") input) nil)
-    (process_input_statement input)
-    (process_input_question input)))
+;;dialougue
 
 (defn dialougue_loop []
+  (println ">Hello, I LiKe JaM. What would you like to know about Bertramka?")
+  (println "================================================================")
   (loop [user_in (read-line)]
-    (process_input_main user_in)
-    (when (not (= user_in "Goodbye"))
-      (recur (read-line)))))
+    (if (not (= user_in "Goodbye"))
+      (do
+        (println "----------------------------------------------------------------")
+        (detect_keywords (string_to_vector user_in) :Bertramka)
+        (println "================================================================")
+        (recur (read-line)))
+      (do
+        (println "----------------------------------------------------------------")
+        (println ">Goodbye!")))))
+
+;;This will contain the set of conditions that process_input functions will use
+;;determine what question is being aske
+
+;;sets of keyword synonyms and related words
+(def set_food #{"food", "eat", "drinks", "beverages", "concessions"})
+(def set_wc #{"wc", "toilet", "toilets", "bathroom", "bathrooms", "restroom", "restrooms"})
+(def set_dog #{"dog", "dogs", "pet", "pets"})
+(def set_interests #{"interests", "sights", "events"})
+(def set_bike #{"bike", "biking", "bicycle", "bikes", "bicycles"})
+(def set_rollerblades #{"rollerblade", "rollerskating", "rollerblading", "rollerskates",
+                      "rollerblades"})
+(def set_sportground #{"court", "field", "soccer", "sportground"})
+(def set_playground #{"playground", "playset"})
+(def set_mhd #{"transportation", "bus", "tram", "metro", "transport", "mhd"})
+(def set_gps #{"gps", "coordinates"})
+(def set_parking #{"parking"})
+
+;;normalize park name with cobblestone
+(defn normalize_key [key]
+  (re-find #"[A-Za-z].*" (str key)))
+;;gr => generate reply
+(defn gr_food [park]
+  (println ">reply for foods in park " park))
+
+(defn gr_wc [park]
+  (println ">reply for toilets in park " park))
+
+(defn gr_dog [park]
+  (println ">reply for dogs in park " park))
+
+(defn gr_interests [park]
+  (println ">reply for interests in park " park))
+
+(defn gr_bike [park]
+  (println ">reply for bike in park " park))
+
+(defn gr_rollerblades [park]
+  (println ">reply for rollerblades in park " park))
+
+(defn gr_sportground [park]
+  (println ">reply for sportground in park " park))
+
+(defn gr_playground [park]
+  (println ">reply for playground in park " park))
+
+(defn gr_mhd [park]
+  (println ">mhd responses" park))
+
+(defn gr_gps [park]
+  (println ">The GPS coordinates for" (normalize_key park) "are" (gps_coordinates park)))
+
+(defn gr_parking [park]
+  (println ">reply for parking in park " park))
+
+;;detection
+(defn detect_keywords [user_in_arr park]
+  (let [stop (dec (count user_in_arr))]
+    (loop [i 0]
+      (let [current (nth user_in_arr i)]
+        (cond
+          (contains? set_food (normalize_string current))
+            (gr_food park)
+          (contains? set_wc (normalize_string current))
+            (gr_wc park)
+          (contains? set_dog (normalize_string current))
+            (gr_dog park)
+          (contains? set_interests (normalize_string current))
+            (gr_interests park)
+          (contains? set_bike (normalize_string current))
+            (gr_bike park)
+          (contains? set_rollerblades (normalize_string current))
+            (gr_rollerblades park)
+          (contains? set_sportground (normalize_string current))
+            (gr_sportground park)
+          (contains? set_playground (normalize_string current))
+            (gr_playground park)
+          (contains? set_mhd (normalize_string current))
+            (gr_mhd park)
+          (contains? set_gps (normalize_string current))
+            (gr_gps park)
+          (contains? set_parking (normalize_string current))
+            (gr_parking park)
+          ))
+      (when (< i stop)
+        (recur (inc i))))))
