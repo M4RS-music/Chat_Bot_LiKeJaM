@@ -168,7 +168,109 @@
     :parking_no {
       :1 "There is no information on parking for this park."
       :2 "No there is not parking."
+	}
+    :wc_yes {
+      :1 "Yes there is a public WC at this park."
+      :2 "Yes, wc is available there."
     }
+    :wc_no {
+      :1 "Unfortunately, there is no WC at this park."
+      :2 "There is not any WC at this park."
+	}
+    :dog_yes {
+      :1 "Yes, you can walk your dog here."
+      :2 "Yes, walking the dog is allowed here."
+    }
+    :dog_no {
+      :1 "No, you cannot walk your dog here."
+      :2 "Sadly, you are not allowed to walk dogs at this park."
+	}
+	:bike_yes {
+	  :1 "You can ride a bike in this park."
+	  :2 "Riding a bike is allowed here."
+	}
+	:bike_no {
+	  :1 "No, you can't ride a bike in this park."
+	  :2 "Riding a bike in this park is not allowed."
+	}
+    :rolerblades_yes {
+      :1 "Yes, riding rolerblades is allowed there."
+    }
+    :rolerblades_no {
+      :1 "No, you cannot ride rolerblades at this park."
+      :2 "There are not any food vendors there."
+    }
+	:sport_ground_yes {
+	  :1 "Yes, there is a sports ground there."
+	  :2 "A sports ground is located at this park."
+	}
+	:sport_ground_no{
+      :1 "No, there is not a sports ground at this park."
+	}
+	:playground_yes {
+	  :1 "Yes, the park has a playground."
+	  :2 "Yes, a playground is located in this park."
+	}
+    :playground_no {
+      :1 "No, this park does not have a playground."
+	}
+	tram_yes {
+	  :1 ["To reach this park you can take the tram number ","."]
+	  :2 ["You can go to this park by taking the tram number ", "."]
+	}
+	bus_yes {
+	  :1 ["This park can be reached by bus number ", "."]
+	  :2 ["You can get the bus number "," to go to this park."]
+	}
+    metro_yes{
+	  :1 ["This park can be reached by metro line ", "."]
+	  :2 ["You can get the metro line "," to go to this park."]
+	}
+    tram_bus_yes{
+	  :1 ["You can go to this park by tram number "," or by bus ","."]
+	}
+	tram_metro_yes{
+	  :1 ["This park can be reached either by tram number", "or the metro line "," ."]
+	}
+	bus_metro_yes{
+	  :1 ["You can take the bus number ", "or the metro line ","."]
+	}
+	tram_no_bus_yes{
+	  :1 ["Unfortunately, you can not go to this park by tram but you can get bus number ", "."]
+	}
+	tram_no_metro_yes{
+	  :1 ["Unfortunately, this park cannot be reached by tram but you can take the metro line", "to get there."]
+	}
+	bus_no_tram_yes{
+	  :1 ["No, you cannot take the bus to get here but you can get the tram number", "to go to this park."]
+	}
+	bus_no_metro_yes{
+	  :1 ["No, the park is not reached by the bus but you can get the metro line", "."]
+	}
+	metro_no_tram_yes{
+	  :1 ["The metro doesn't get there, try taking the tram number", "to get to the park."]
+	}
+	metro_no_bus_yes{
+	  :1 ["There is no metro that goes there, try taking the bus number", "to reach the park"]
+	}
+	tram_bus_metro_yes{
+	  :1 ["This park can be reache by tram number ", ", bus number ","or by metro line","."]
+	}
+	tram_bus_metro_no{
+	  :1 "The only way to go to this park is by walking, sorry."]
+	}
+	on_hours_response{
+	  :1 ["The park is open during","."]
+	}
+	on_season_response{
+      :1 ["The park stays open during the months of","."]
+	}
+	off_hours_response{
+	  :1 ["The park stays closed during","."]
+	}
+    off_season_response{
+	  :1["The park is closed during the months oof","."]
+	}
     })
 
 ;;Predicates
