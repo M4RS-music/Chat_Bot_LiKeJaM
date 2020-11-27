@@ -214,58 +214,58 @@
     :playground_no {
       :1 "No, this park does not have a playground."
 	}
-	tram_yes {
+	:tram_yes {
 	  :1 ["To reach this park you can take the tram number ","."]
 	  :2 ["You can go to this park by taking the tram number ", "."]
 	}
-	bus_yes {
+	:bus_yes {
 	  :1 ["This park can be reached by bus number ", "."]
 	  :2 ["You can get the bus number "," to go to this park."]
 	}
-    metro_yes{
+    :metro_yes{
 	  :1 ["This park can be reached by metro line ", "."]
 	  :2 ["You can get the metro line "," to go to this park."]
 	}
-    tram_bus_yes{
+    :tram_bus_yes{
 	  :1 ["You can go to this park by tram number "," or by bus ","."]
 	}
-	tram_metro_yes{
+	:tram_metro_yes{
 	  :1 ["This park can be reached either by tram number", "or the metro line "," ."]
 	}
-	bus_metro_yes{
+	:bus_metro_yes{
 	  :1 ["You can take the bus number ", "or the metro line ","."]
 	}
-	tram_no_bus_yes{
+	:tram_no_bus_yes{
 	  :1 ["Unfortunately, you can not go to this park by tram but you can get bus number ", "."]
 	}
-	tram_no_metro_yes{
+	:tram_no_metro_yes{
 	  :1 ["Unfortunately, this park cannot be reached by tram but you can take the metro line", "to get there."]
 	}
-	bus_no_tram_yes{
+	:bus_no_tram_yes{
 	  :1 ["No, you cannot take the bus to get here but you can get the tram number", "to go to this park."]
 	}
-	bus_no_metro_yes{
+	:bus_no_metro_yes{
 	  :1 ["No, the park is not reached by the bus but you can get the metro line", "."]
 	}
-	metro_no_tram_yes{
+	:metro_no_tram_yes{
 	  :1 ["The metro doesn't get there, try taking the tram number", "to get to the park."]
 	}
-	metro_no_bus_yes{
+	:metro_no_bus_yes{
 	  :1 ["There is no metro that goes there, try taking the bus number", "to reach the park"]
 	}
 	tram_bus_metro_yes{
 	  :1 ["This park can be reached by tram number ", ", bus number ","or by metro line","."]
 	}
-	tram_bus_metro_no{
+	:tram_bus_metro_no{
 	  :1 "The only way to go to this park is by walking, sorry."]
 	}
-	on_hours_response{
+	:on_hours_response{
 	  :1 ["The park is open during","."]
 	}
-	on_season_response{
+	:on_season_response{
       :1 ["The park stays open during the months of","."]
 	}
-	off_hours_response{
+	:off_hours_response{
 	  :1 ["The park stays closed during","."]
 	}
     off_season_response{
