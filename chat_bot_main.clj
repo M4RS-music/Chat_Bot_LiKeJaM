@@ -168,7 +168,59 @@
     :parking_no {
       :1 "There is no information on parking for this park."
       :2 "No there is not parking."
+	}
+    :wc_yes {
+      :1 "Yes there is a public WC at this park."
+      :2 "Yes, wc is available there."
     }
+    :wc_no {
+      :1 "Unfortunately, there is no WC at this park."
+      :2 "There is not any WC at this park."
+	}
+    :dog_yes {
+      :1 "Yes, you can walk your dog here."
+      :2 "Yes, walking the dog is allowed here."
+    }
+    :dog_no {
+      :1 "No, you cannot walk your dog here."
+      :2 "Sadly, you are not allowed to walk dogs at this park."
+	}
+	:bike_yes {
+	  :1 "You can ride a bike in this park."
+	  :2 "Riding a bike is allowed here."
+	}
+	:bike_no {
+	  :1 "No, you can't ride a bike in this park."
+	  :2 "Riding a bike in this park is not allowed."
+	}
+    :rolerblades_yes {
+      :1 "Yes, riding rolerblades is allowed there."
+    }
+    :rolerblades_no {
+      :1 "No, you cannot ride rolerblades at this park."
+      :2 "There are not any food vendors there."
+    }
+	:sport_ground_yes {
+	  :1 "Yes, there is a sports ground there."
+	  :2 "A sports ground is located at this park."
+	}
+	:sport_ground_no{
+      :1 "No, there is not a sports ground at this park."
+	}
+	:playground_yes {
+	  :1 "Yes, the park has a playground."
+	  :2 "Yes, a playground is located in this park."
+	}
+    :playground_no {
+      :1 "No, this park does not have a playground."
+	}
+	:mhd_tram {
+	  :1 ["Yes you can go by trams ", "."] 
+	  :2 ["You can use trams", "to go to this park."]
+	}
+	:mhd
+
+
     })
 
 ;;Predicates
