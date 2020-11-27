@@ -154,11 +154,11 @@
                ;;function to insert the datapoints in between the strings. (see :parking_yes for eg.)
   {
     :food_yes {
-      :1 "Yes there are food vendors at this park."
-      :2 "Yes food is available there."
+      :1 "Yes, there are food vendors at this park."
+      :2 "Yes, food is available there."
     }
     :food_no {
-      :1 "No there is no food at this park."
+      :1 "No, there is no food at this park."
       :2 "There are not any food vendors there."
     }
     :parking_yes {
@@ -167,19 +167,19 @@
     }
     :parking_no {
       :1 "There is no information on parking for this park."
-      :2 "No there is not parking."
+      :2 "No, there isn't any parking."
 	}
     :wc_yes {
-      :1 "Yes there is a public WC at this park."
-      :2 "Yes, wc is available there."
+      :1 "Yes, there is a public WC at this park."
+      :2 "Yes, WC is available there."
     }
     :wc_no {
       :1 "Unfortunately, there is no WC at this park."
-      :2 "There is not any WC at this park."
+      :2 "You won't find a WC at this park."
 	}
     :dog_yes {
       :1 "Yes, you can walk your dog here."
-      :2 "Yes, walking the dog is allowed here."
+      :2 "Yes, walking your dog is allowed here."
     }
     :dog_no {
       :1 "No, you cannot walk your dog here."
@@ -220,11 +220,11 @@
 	}
 	:bus_yes {
 	  :1 ["This park can be reached by bus number ", "."]
-	  :2 ["You can get the bus number "," to go to this park."]
+	  :2 ["You can catch the bus number "," to get to this park."]
 	}
     :metro_yes{
 	  :1 ["This park can be reached by metro line ", "."]
-	  :2 ["You can get the metro line "," to go to this park."]
+	  :2 ["You can get the metro line "," to get to this park."]
 	}
     :tram_bus_yes{
 	  :1 ["You can go to this park by tram number "," or by bus ","."]
@@ -242,10 +242,10 @@
 	  :1 ["Unfortunately, this park cannot be reached by tram but you can take the metro line", "to get there."]
 	}
 	:bus_no_tram_yes{
-	  :1 ["No, you cannot take the bus to get here but you can get the tram number", "to go to this park."]
+	  :1 ["No, you cannot take the bus to get here but you can take the tram number", "to get to this park."]
 	}
 	:bus_no_metro_yes{
-	  :1 ["No, the park is not reached by the bus but you can get the metro line", "."]
+	  :1 ["No, the park is not reached by the bus but you can take the metro line", "."]
 	}
 	:metro_no_tram_yes{
 	  :1 ["The metro doesn't get there, try taking the tram number", "to get to the park."]
