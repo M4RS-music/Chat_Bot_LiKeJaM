@@ -153,11 +153,11 @@
                ;;function to insert the datapoints in between the strings. (see :parking_yes for eg.)
   {
     :food_yes {
-      :1 "Yes there are food vendors at this park."
-      :2 "Yes food is available there."
+      :1 "Yes, there are food vendors at this park."
+      :2 "Yes, food is available there."
     }
     :food_no {
-      :1 "No there is no food at this park."
+      :1 "No, there is no food at this park."
       :2 "There are not any food vendors there."
     }
     :parking_yes {
@@ -256,7 +256,7 @@
 	  :1 ["This park can be reache by tram number ", ", bus number ", "or by metro line", "."]
 	}
 	:tram_bus_metro_no {
-	  :1 "The only way to go to this park is by walking, sorry."]
+	  :1 "There is no public transportation to this park"
 	}
 	:on_hours_response {
 	  :1 ["The park is open during", "."]
@@ -331,6 +331,9 @@
 (defn metro [park] (:Metro (:MHD (park parks_info))))
 (defn metro_line? [park metro_line] (contains? (metro park) metro_line))
 
+(defn website [park]
+  (:Website (park parks_info)))
+
 ;;UIR
 (defn normalize_string [string]
   (re-find #".*[A-Za-z]" (str/lower-case string)))
@@ -370,6 +373,11 @@
 (def set_mhd #{"transportation", "bus", "tram", "metro", "transport", "mhd"})
 (def set_gps #{"gps", "coordinates"})
 (def set_parking #{"parking"})
+(def set_trailtype #{"trail", "trails", "surface"})
+(def set_owner #{"owner", "own", '("who", "runs")})
+(def set_hours #{"open", "hours", "opening"})
+(def set_website #{"site", "website", '("more", "info"), '("further", "info")
+                  '("more", "information"), '("further", "information"), "link"})
 
 ;;normalize park name with cobblestone
 (defn normalize_key [key]
@@ -408,10 +416,23 @@
 (defn gr_parking [park]
   (println ">reply for parking in park " park))
 
+(defn gr_trailtype [park]
+  (println ">The surface of the trails at" (normalize_key park) "are" (trail_type park)))
+
+(defn gr_owner [park]
+  (println ">The owner of" (normalize_key park) "is" (owner park)))
+
+(defn gr_hours [park]
+  (println ">reply for hourse in park" park))
+
+(defn gr_website [park]
+  (println ">The website for" (normalize_key park) "is" (website park)))
+
 ;;detection
 (defn detect_keywords [user_in_arr park]
   (let [stop (dec (count user_in_arr))]
-    (loop [i 0]
+    (loop [i 0
+          previous nil]
       (let [current (nth user_in_arr i)]
         (cond
           (contains? set_food (normalize_string current))
@@ -436,6 +457,18 @@
             (gr_gps park)
           (contains? set_parking (normalize_string current))
             (gr_parking park)
-          ))
+          (contains? set_trailtype (normalize_string current))
+            (gr_trailtype park)
+          (or
+            (contains? set_owner (normalize_string current))
+            (contains? set_owner (list previous (normalize_string current))))
+            (gr_owner park)
+          (contains? set_hours (normalize_string current))
+            (gr_hours park)
+          (or
+            (contains? set_website (normalize_string current))
+            (contains? set_website (list previous (normalize_string current))))
+            (gr_website park)
+          )
       (when (< i stop)
-        (recur (inc i))))))
+        (recur (inc i) (normalize_string current)))))))
