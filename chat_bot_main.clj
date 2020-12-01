@@ -294,9 +294,8 @@
 (defn parking? [park]
   (not (nil? (:Parking (park parks_info)))))
 
-
 (defn dogs? [park]
-  (:Dogs (park parks_info))))
+  (:Dogs (park parks_info)))
 
 ;;Get info
 (defn parking_info [park]
@@ -310,7 +309,7 @@
   (:GPS (park parks_info)))
 
 (defn owner [park]
-  (:Owner (park parks_info))))
+  (:Owner (park parks_info)))
 
 (defn on_hours [park]
   (:On_Hours (:Hours (park parks_info))))
@@ -341,22 +340,6 @@
 (defn string_to_vector [string]
   (str/split string #" "))
 
-;;dialougue
-
-(defn dialougue_loop []
-  (println ">Hello, I LiKe JaM. What would you like to know about Bertramka?")
-  (println "================================================================")
-  (loop [user_in (read-line)]
-    (if (not (= user_in "Goodbye"))
-      (do
-        (println "----------------------------------------------------------------")
-        (detect_keywords (string_to_vector user_in) :Bertramka)
-        (println "================================================================")
-        (recur (read-line)))
-      (do
-        (println "----------------------------------------------------------------")
-        (println ">Goodbye!")))))
-
 ;;This will contain the set of conditions that process_input functions will use
 ;;determine what question is being aske
 
@@ -384,37 +367,72 @@
   (re-find #"[A-Za-z].*" (str key)))
 ;;gr => generate reply
 (defn gr_food [park]
-  (println ">reply for foods in park " park))
+  (cond
+    (food? park)
+      (println (:1 (:food_yes responses)))
+    (not (food? park))
+      (println (:1 (:food_no responses)))))
 
 (defn gr_wc [park]
-  (println ">reply for toilets in park " park))
+  (cond
+    (WC? park)
+      (println (:1 (:wc_yes responses)))
+    (not (WC? park))
+      (println (:1 (:wc_no responses)))))
 
 (defn gr_dog [park]
-  (println ">reply for dogs in park " park))
+  (cond
+    (dogs? park)
+      (println (:1 (:dog_yes responses)))
+    (not (dogs? park))
+      (println (:1 (:dog_no responses)))))
 
 (defn gr_interests [park]
-  (println ">reply for interests in park " park))
+  (println "There are" (:Interest (park parks_info))))
 
 (defn gr_bike [park]
-  (println ">reply for bike in park " park))
+  (cond
+    (bike? park)
+      (println (:1 (:bike_yes responses)))
+    (not (bike? park))
+      (println (:1 (:bike_no responses)))))
 
 (defn gr_rollerblades [park]
-  (println ">reply for rollerblades in park " park))
+  (cond
+    (rolerblades? park)
+      (println (:1 (:rolerblades_yes responses)))
+    (not (rolerblades? park))
+      (println (:1 (:rolerblades_no responses)))))
 
 (defn gr_sportground [park]
-  (println ">reply for sportground in park " park))
-
-(defn gr_playground [park]
-  (println ">reply for playground in park " park))
-
-(defn gr_mhd [park]
-  (println ">mhd responses" park))
-
-(defn gr_gps [park]
-  (println ">The GPS coordinates for" (normalize_key park) "are" (gps_coordinates park)))
+  (cond
+    (sport_ground? park)
+      (println (:1 (:sport_ground_yes responses)))
+    (not (sport_ground? park))
+      (println (:1 (:sport_ground_no responses)))))
 
 (defn gr_parking [park]
-  (println ">reply for parking in park " park))
+  (cond
+    (parking? park)
+      (println "Yes there is" (first (parking_info park)) "parking available at" (rest (parking_info park)) ".")
+    (not (playground? park))
+      (println (:1 (:parking_no responses)))))
+
+(defn gr_mhd [park]
+  (println "Bellow are the available public transportation lines for" (normalize_key park))
+  (println "Tram:" (tram park))
+  (println "Bus:" (bus park))
+  (println "Metro:" (metro park)))
+
+(defn gr_gps [park]
+  (println "The GPS coordinates for" (normalize_key park) "are" (gps_coordinates park)))
+
+(defn gr_playground [park]
+  (cond
+    (playground? park)
+      (println (:1 (:playground_yes responses)))
+    (not (playground? park))
+      (println (:1 (:playground_no responses)))))
 
 (defn gr_trailtype [park]
   (println ">The surface of the trails at" (normalize_key park) "are" (trail_type park)))
@@ -423,7 +441,8 @@
   (println ">The owner of" (normalize_key park) "is" (owner park)))
 
 (defn gr_hours [park]
-  (println ">reply for hourse in park" park))
+  (println "The hours during" (on_season park) "are" (on_hours park))
+  (println "The off season hours during" (off_season park) "are" (off_hours park)))
 
 (defn gr_website [park]
   (println ">The website for" (normalize_key park) "is" (website park)))
@@ -472,3 +491,20 @@
           )
       (when (< i stop)
         (recur (inc i) (normalize_string current)))))))
+
+;;chatbot dialogue
+(defn dialougue_loop []
+  (println ">Hello, I LiKe JaM. What would you like to know about Bertramka?")
+  (println "================================================================")
+  (loop [user_in (read-line)]
+    (if (not (= user_in "Goodbye"))
+      (do
+        (println "----------------------------------------------------------------")
+        (detect_keywords (string_to_vector user_in) :Bertramka)
+        (println "================================================================")
+        (recur (read-line)))
+      (do
+        (println "----------------------------------------------------------------")
+        (println ">Goodbye!")))))
+
+(dialougue_loop)
