@@ -367,6 +367,7 @@
   (re-find #"[A-Za-z].*" (str key)))
 ;;gr => generate reply
 (defn gr_food [park]
+  (def i_foo 1)
   (cond
     (food? park)
       (println (:1 (:food_yes responses)))
@@ -374,6 +375,7 @@
       (println (:1 (:food_no responses)))))
 
 (defn gr_wc [park]
+  (def i_wc 1)
   (cond
     (WC? park)
       (println (:1 (:wc_yes responses)))
@@ -381,6 +383,7 @@
       (println (:1 (:wc_no responses)))))
 
 (defn gr_dog [park]
+  (def i_dog 1)
   (cond
     (dogs? park)
       (println (:1 (:dog_yes responses)))
@@ -388,9 +391,11 @@
       (println (:1 (:dog_no responses)))))
 
 (defn gr_interests [park]
+  (def i_int 1)
   (println "There are" (:Interest (park parks_info))))
 
 (defn gr_bike [park]
+  (def i_bik 1)
   (cond
     (bike? park)
       (println (:1 (:bike_yes responses)))
@@ -398,6 +403,7 @@
       (println (:1 (:bike_no responses)))))
 
 (defn gr_rollerblades [park]
+  (def i_rol 1)
   (cond
     (rolerblades? park)
       (println (:1 (:rolerblades_yes responses)))
@@ -405,6 +411,7 @@
       (println (:1 (:rolerblades_no responses)))))
 
 (defn gr_sportground [park]
+  (def i_spo 1)
   (cond
     (sport_ground? park)
       (println (:1 (:sport_ground_yes responses)))
@@ -412,6 +419,7 @@
       (println (:1 (:sport_ground_no responses)))))
 
 (defn gr_parking [park]
+  (def i_par 1)
   (cond
     (parking? park)
       (println "Yes there is" (first (parking_info park)) "parking available at" (rest (parking_info park)) ".")
@@ -419,15 +427,18 @@
       (println (:1 (:parking_no responses)))))
 
 (defn gr_mhd [park]
+  (def i_mhd 1)
   (println "Bellow are the available public transportation lines for" (normalize_key park))
   (println "Tram:" (tram park))
   (println "Bus:" (bus park))
   (println "Metro:" (metro park)))
 
 (defn gr_gps [park]
+  (def i_gps 1)
   (println "The GPS coordinates for" (normalize_key park) "are" (gps_coordinates park)))
 
 (defn gr_playground [park]
+  (def i_pla 1)
   (cond
     (playground? park)
       (println (:1 (:playground_yes responses)))
@@ -435,58 +446,79 @@
       (println (:1 (:playground_no responses)))))
 
 (defn gr_trailtype [park]
+  (def i_tra 1)
   (println ">The surface of the trails at" (normalize_key park) "are" (trail_type park)))
 
 (defn gr_owner [park]
+  (def i_own 1)
   (println ">The owner of" (normalize_key park) "is" (owner park)))
 
 (defn gr_hours [park]
+  (def i_hou 1)
   (println "The hours during" (on_season park) "are" (on_hours park))
   (println "The off season hours during" (off_season park) "are" (off_hours park)))
 
 (defn gr_website [park]
+  (def i_web 1)
   (println ">The website for" (normalize_key park) "is" (website park)))
 
 ;;detection
 (defn detect_keywords [user_in_arr park]
+  ;;variables that prevent multiple replies being generated for 2 keywords from user
+  (def i_foo 0)
+  (def i_wc 0)
+  (def i_dog 0)
+  (def i_int 0)
+  (def i_bik 0)
+  (def i_rol 0)
+  (def i_spo 0)
+  (def i_par 0)
+  (def i_mhd 0)
+  (def i_gps 0)
+  (def i_pla 0)
+  (def i_tra 0)
+  (def i_own 0)
+  (def i_hou 0)
+  (def i_web 0)
+
   (let [stop (dec (count user_in_arr))]
     (loop [i 0
           previous nil]
       (let [current (nth user_in_arr i)]
         (cond
-          (contains? set_food (normalize_string current))
+          (and (= i_foo 0) (contains? set_food (normalize_string current)))
             (gr_food park)
-          (contains? set_wc (normalize_string current))
+          (and (= i_wc 0) (contains? set_wc (normalize_string current)))
             (gr_wc park)
-          (contains? set_dog (normalize_string current))
+          (and (= i_dog 0) (contains? set_dog (normalize_string current)))
             (gr_dog park)
-          (contains? set_interests (normalize_string current))
+          (and (= i_int 0) (contains? set_interests (normalize_string current)))
             (gr_interests park)
-          (contains? set_bike (normalize_string current))
+          (and (= i_bik 0) (contains? set_bike (normalize_string current)))
             (gr_bike park)
-          (contains? set_rollerblades (normalize_string current))
+          (and (= i_rol 0) (contains? set_rollerblades (normalize_string current)))
             (gr_rollerblades park)
-          (contains? set_sportground (normalize_string current))
+          (and (= i_spo 0) (contains? set_sportground (normalize_string current)))
             (gr_sportground park)
-          (contains? set_playground (normalize_string current))
+          (and (= i_pla 0) (contains? set_playground (normalize_string current)))
             (gr_playground park)
-          (contains? set_mhd (normalize_string current))
+          (and (= i_mhd 0) (contains? set_mhd (normalize_string current)))
             (gr_mhd park)
-          (contains? set_gps (normalize_string current))
+          (and (= i_gps 0) (contains? set_gps (normalize_string current)))
             (gr_gps park)
-          (contains? set_parking (normalize_string current))
+          (and (= i_par 0) (contains? set_parking (normalize_string current)))
             (gr_parking park)
-          (contains? set_trailtype (normalize_string current))
+          (and (= i_tra 0) (contains? set_trailtype (normalize_string current)))
             (gr_trailtype park)
-          (or
+          (and (= i_own 0) (or
             (contains? set_owner (normalize_string current))
-            (contains? set_owner (list previous (normalize_string current))))
+            (contains? set_owner (list previous (normalize_string current)))))
             (gr_owner park)
-          (contains? set_hours (normalize_string current))
+          (and (= i_hou 0) (contains? set_hours (normalize_string current)))
             (gr_hours park)
-          (or
+          (and (= i_web 0) (or
             (contains? set_website (normalize_string current))
-            (contains? set_website (list previous (normalize_string current))))
+            (contains? set_website (list previous (normalize_string current)))))
             (gr_website park)
           )
       (when (< i stop)
