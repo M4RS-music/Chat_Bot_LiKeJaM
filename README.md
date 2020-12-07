@@ -3,11 +3,15 @@
 This is a small Chatbot that is meant to provide information about the parks in Prague in an interactive way. The objective is for it to be able of provide the user an ELIZA like experience that provides information about the park such as any interesting features accessibility and more. For this purpose the bot will be programed in Clojure.
 
 ## HOW TO USE
-To run the chatbot simply navigate to /Chat_Bot_LiKeJaM and run:
-clojure chat_bot_main.clj
+To run the chatbot navigate to /Chat_Bot_LiKeJaM with your command line and run:
+*clojure chat_bot_main.clj*
+
+To communicate with the chatbot simply type a question pertaining to info on the
+park Bertramka. The chatbot will not reply to questions it does not have the
+information for.
 
 To exit the chatbot type:
-Goodbye
+*Goodbye*
 
 ## AUTHORS
 Kevin Dhëmbi  
@@ -32,10 +36,9 @@ Peter Švarny(Supervisor)
 As the chatbot is written in Clojure. Depending on your operating system different steps may be requierd to use the chatbot.  
 The required components are as follows:
 - Java Development Kit (JDK) version 11 or newer.
-- Leiningen
+- A Clojure Installation
 - A Command Line Interface (CLI)
 ## LICENSE
-[GNU GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html)  
-TBD by the group if this will stay.
+[GNU GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html)
 ## BUGS
-No Known bugs at the moment
+No Known bugs.
