@@ -179,7 +179,7 @@
     :dog_yes {
       :1 "Yes, you can walk your dog here."
       :2 "Yes, walking the dog is allowed here."
-    }
+	}
     :dog_no {
       :1 "No, you cannot walk your dog here."
       :2 "Sadly, you are not allowed to walk dogs at this park."
@@ -351,14 +351,14 @@
 (def set_bike #{"bike", "biking", "bicycle", "bikes", "bicycles"})
 (def set_rollerblades #{"rollerblade", "rollerskating", "rollerblading", "rollerskates",
                       "rollerblades"})
-(def set_sportground #{"court", "field", "soccer", "sportground"})
+(def set_sportground #{"court", "field", "soccer", "sportground","basketball"})
 (def set_playground #{"playground", "playset"})
-(def set_mhd #{"transportation", "bus", "tram", "metro", "transport", "mhd"})
+(def set_mhd #{"transportation","directions" "bus", "tram", "metro", "transport", "mhd"})
 (def set_gps #{"gps", "coordinates"})
 (def set_parking #{"parking"})
 (def set_trailtype #{"trail", "trails", "surface"})
 (def set_owner #{"owner", "own", '("who", "runs")})
-(def set_hours #{"open", "hours", "opening"})
+(def set_hours #{"open", "hours", "opening","close"})
 (def set_website #{"site", "website", '("more", "info"), '("further", "info")
                   '("more", "information"), '("further", "information"), "link"})
 
@@ -428,7 +428,7 @@
 
 (defn gr_mhd [park]
   (def i_mhd 1)
-  (println "Bellow are the available public transportation lines for" (normalize_key park))
+  (println "Below are the available public transportation lines for" (normalize_key park))
   (println "Tram:" (tram park))
   (println "Bus:" (bus park))
   (println "Metro:" (metro park)))
