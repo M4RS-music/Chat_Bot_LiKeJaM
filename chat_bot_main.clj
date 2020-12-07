@@ -157,8 +157,7 @@
       :2 "Yes, food is available there."
     }
     :food_no {
-      :1 "No, there is no food at this park."
-      :2 "There are not any food vendors there."
+      :1 "No, you cannot eat at this park."
     }
     :parking_yes {
       :1 ["Yes there is ", "parking", "available at", "."]
