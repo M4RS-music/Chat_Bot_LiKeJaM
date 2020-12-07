@@ -344,7 +344,7 @@
 ;;determine what question is being aske
 
 ;;sets of keyword synonyms and related words
-(def set_food #{"food", "eat", "drinks", "beverages", "concessions"})
+(def set_food #{"food", "eat", "drinks", "beverages", "concessions", "restaurant", "restaurants"})
 (def set_wc #{"wc", "toilet", "toilets", "bathroom", "bathrooms", "restroom", "restrooms"})
 (def set_dog #{"dog", "dogs", "pet", "pets"})
 (def set_interests #{"interests", "sights", "events"})
@@ -354,11 +354,11 @@
 (def set_sportground #{"court", "field", "soccer", "sportground","basketball"})
 (def set_playground #{"playground", "playset"})
 (def set_mhd #{"transportation","directions" "bus", "tram", "metro", "transport", "mhd", "reach"})
-(def set_gps #{"gps", "coordinates"})
+(def set_gps #{"gps", "coordinates", "located"})
 (def set_parking #{"parking", "cars", "car"})
 (def set_trailtype #{"trail", "trails", "surface"})
 (def set_owner #{"owner", "own", '("who", "runs")})
-(def set_hours #{"open", "hours", "opening","close"})
+(def set_hours #{"open", "hours", "opening","close","when"})
 (def set_website #{"site", "website", '("more", "info"), '("further", "info")
                   '("more", "information"), '("further", "information"), "link"})
 
