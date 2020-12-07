@@ -355,7 +355,7 @@
 (def set_playground #{"playground", "playset"})
 (def set_mhd #{"transportation","directions" "bus", "tram", "metro", "transport", "mhd", "reach"})
 (def set_gps #{"gps", "coordinates"})
-(def set_parking #{"parking", "cars"})
+(def set_parking #{"parking", "cars", "car"})
 (def set_trailtype #{"trail", "trails", "surface"})
 (def set_owner #{"owner", "own", '("who", "runs")})
 (def set_hours #{"open", "hours", "opening","close"})
