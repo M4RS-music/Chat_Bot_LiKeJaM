@@ -357,7 +357,7 @@
 (def set_parking #{"parking", "cars", "car"})
 (def set_trailtype #{"trail", "trails", "surface"})
 (def set_owner #{"owner", "own", '("who", "runs")})
-(def set_hours #{"open", "hours", "opening","close","when"})
+(def set_hours #{"open", "hours", "opening","close"})
 (def set_website #{"site", "website", '("more", "info"), '("further", "info")
                   '("more", "information"), '("further", "information"), "link"})
 
