@@ -3,7 +3,7 @@
 <body>
 <h1>LiKeJaM Chatbot</h1>
 <p>This is the github page for the chatbot ICA</p>
-<h2>Woklogs Below</h2>
+<h2>Woklogs for ICA1 Below</h2>
   <p>Create basic chat loop.
     --Martin Janda Oct 28, 2020 8pm - 8.45pm</p>
   <p>Create park_info data structure and input the required 1 park for this ICA1
@@ -79,7 +79,15 @@ You can now ask this chatbot questions about betramka and it will tell you what 
   --Linda Motejl 7 Dec, 2020 5:00-8:30PM</p>
 <p> Edited documentation. Created a Gantt chart. Inserted Table of Figures.
   --Linda Motejl 7 Dec, 2020 1:00-2:40PM</p>
+<h2>Woklogs for ICA1 Below</h2>
+<p>The chatbot now can give information about all parks in the data structure parks_info. This is accomplished
+  by the new detect_keywords_init function which checks whether the name of a park is in the user input. if no
+   park has been mentioned in the conversation the chatbot will prompt the user to specify a park. If the chatbot
+  detects a park all further questions will correspond to that park untill the user asks about a different park.
+added arr_contains? this normalizes an arr while it checks for the presence of a string within it.
+fixed dialogue_loop spelling mistake
+dialogue_loop calls detect_keywords_init instead of detect_keywords.
+
+--MARTIN JANDA Jan 13, 2020 9am-11:55am</p>
 </body>
 </html>
-
-
