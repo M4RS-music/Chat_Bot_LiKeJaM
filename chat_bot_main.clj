@@ -339,6 +339,16 @@
 (defn string_to_vector [string]
   (str/split string #" "))
 
+(defn arr_contains? [uarr search]
+  (let [stop (dec (count uarr))]
+    (loop [i 0]
+      (let [current (nth uarr i)]
+        (if (= (normalize_string current) search)
+          true
+          (if (< i stop)
+            (recur (inc i))
+            false))))))
+
 ;;This will contain the set of conditions that process_input functions will use
 ;;determine what question is being aske
 
@@ -461,8 +471,52 @@
   (def i_web 1)
   (println ">The website for" (normalize_key park) "is" (website park)))
 
-;;detection
+
+;;detection of park
+;;remembers what park is being discussed until a new one is mentioned
+(def current_park nil)
+(defn setp_bertramka [] (def current_park :Bertramka))
+(defn setp_frantiskanska [] (def current_park :Frantiskanska_zahrada))
+(defn setp_obora [] (def current_park :Obora_hvezda))
+(defn setp_kampa [] (def current_park :Kampa))
+(defn setp_kinskeho [] (def current_park :Kinskeho_zahrada))
+
+(defn detect_keywords_init [user_in_arr]
+  ;;(println user_in_arr)
+  (cond
+    (arr_contains? user_in_arr "bertramka")
+      (do
+        ;;(println "DEBUG BERTRAMKA DETECTED")
+        (setp_bertramka)
+        (detect_keywords user_in_arr current_park))
+    (arr_contains? user_in_arr "frantiskanska")
+      (do
+        ;;(println "DEBUG FRANTISKANKA DETECTED")
+        (setp_frantiskanska)
+        (detect_keywords user_in_arr current_park))
+    (arr_contains? user_in_arr "obora")
+      (do
+        ;;(println "DEBUG OBORA DETECTED")
+        (setp_obora)
+        (detect_keywords user_in_arr current_park))
+    (arr_contains? user_in_arr "kampa")
+      (do
+        ;;(println "DEBUG KAMPA DETECTED")
+        (setp_kampa)
+        (detect_keywords user_in_arr current_park))
+    (arr_contains? user_in_arr "kinskeho")
+      (do
+        (setp_kinskeho)
+        (detect_keywords user_in_arr current_park))
+    :else
+      (if (= current_park nil)
+        (println "Please specify a park")
+        (detect_keywords user_in_arr current_park))
+    ))
+
+;;detection of keywords and questions being asked
 (defn detect_keywords [user_in_arr park]
+  ;(println "DETECT KEYWORDS RAN")
   ;;variables that prevent multiple replies being generated for 2 keywords from user
   (def i_foo 0)
   (def i_wc 0)
@@ -524,18 +578,18 @@
         (recur (inc i) (normalize_string current)))))))
 
 ;;chatbot dialogue
-(defn dialougue_loop []
-  (println ">Hello, I LiKe JaM. What would you like to know about Bertramka?")
+(defn dialogue_loop []
+  (println ">Hello, I LiKe JaM. What would you like to know about the parks in Prague?")
   (println "================================================================")
   (loop [user_in (read-line)]
     (if (not (= user_in "Goodbye"))
       (do
         (println "----------------------------------------------------------------")
-        (detect_keywords (string_to_vector user_in) :Bertramka)
+        (detect_keywords_init (string_to_vector user_in))
         (println "================================================================")
         (recur (read-line)))
       (do
         (println "----------------------------------------------------------------")
         (println ">Goodbye!")))))
 
-(dialougue_loop)
+(dialogue_loop)
