@@ -480,8 +480,13 @@
 (defn setp_obora [] (def current_park :Obora_hvezda))
 (defn setp_kampa [] (def current_park :Kampa))
 (defn setp_kinskeho [] (def current_park :Kinskeho_zahrada))
+(defn setp_dogID [] (def current_park "dog_id"))
 
-(defn detect_keywords_init [user_in_arr]
+;;;;;;;;;;;;;;;;;;;;DOG TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defn dog_taxonomy [] (println "DOG TAXONOMY DEBUG"))
+
+;;topic detection decides what park is being discussed or if a dog is being identified
+(defn topic_handler [user_in_arr]
   ;;(println user_in_arr)
   (cond
     (arr_contains? user_in_arr "bertramka")
@@ -508,11 +513,16 @@
       (do
         (setp_kinskeho)
         (detect_keywords user_in_arr current_park))
+    (and (arr_contains? user_in_arr "dog") (or
+                                              (arr_contains? user_in_arr "identify")
+                                              (arr_contains? user_in_arr "breed")
+                                              (arr_contains? user_in_arr "type")))
+      (setp_dogID)
     :else
       (if (= current_park nil)
         (println "Please specify a park")
-        (detect_keywords user_in_arr current_park))
-    ))
+        (detect_keywords user_in_arr current_park)))
+  (when (= current_park "dog_id") (dog_taxonomy)))
 
 ;;detection of keywords and questions being asked
 (defn detect_keywords [user_in_arr park]
@@ -585,7 +595,7 @@
     (if (not (= user_in "Goodbye"))
       (do
         (println "----------------------------------------------------------------")
-        (detect_keywords_init (string_to_vector user_in))
+        (topic_handler (string_to_vector user_in))
         (println "================================================================")
         (recur (read-line)))
       (do
