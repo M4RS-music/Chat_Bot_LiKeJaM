@@ -89,5 +89,10 @@ fixed dialogue_loop spelling mistake
 dialogue_loop calls detect_keywords_init instead of detect_keywords.
 
 --MARTIN JANDA Jan 13, 2020 9am-11:55am</p>
+<p> Add detection of dog identification topic
+
+topic_handler (formerly detect_keywords_init) can now detect if the user wants to identify a dog, it runs the function dog_taxonomy which will be a decision tree that will guide the user through a series of binary questions that will identify a dog breed (or a dog likely being a breed since we will not be identifying every breed)
+
+--MARTIN JANDA Jan 14, 2020 1:30-1:59pm</p>
 </body>
 </html>
