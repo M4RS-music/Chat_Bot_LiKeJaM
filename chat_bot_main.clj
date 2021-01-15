@@ -475,12 +475,12 @@
 ;;detection of park
 ;;remembers what park is being discussed until a new one is mentioned
 (def current_topic nil)
-(defn setp_bertramka [] (def current_park :Bertramka))
-(defn setp_frantiskanska [] (def current_park :Frantiskanska_zahrada))
-(defn setp_obora [] (def current_park :Obora_hvezda))
-(defn setp_kampa [] (def current_park :Kampa))
-(defn setp_kinskeho [] (def current_park :Kinskeho_zahrada))
-(defn setp_birdID [] (def current_park "bird_id"))
+(defn setp_bertramka [] (def current_topic :Bertramka))
+(defn setp_frantiskanska [] (def current_topic :Frantiskanska_zahrada))
+(defn setp_obora [] (def current_topic :Obora_hvezda))
+(defn setp_kampa [] (def current_topic :Kampa))
+(defn setp_kinskeho [] (def current_topic :Kinskeho_zahrada))
+(defn setp_birdID [] (def current_topic "bird_id"))
 
 ;;;;;;;;;;;;;;;;;;;;BIRD TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (def position_in_tree nil)
@@ -507,12 +507,9 @@
   :no "NOT FINISHED"
   })
 
-(defn bird_taxonomy [user_in_arr]
-  (if (= position_in_tree nil)
-    (do
-      (println "This is the bird identification mode, please answer with only 'yes' and 'no'"))
-    (println "NOT FINISHED")))
+(defn bird_taxonomy [user_in_arr] (println "BIRD ID TEST"))
 
+(declare detect_keywords)
 ;;topic detection decides what park is being discussed or if a dog is being identified
 (defn topic_handler [user_in_arr]
   ;;(println user_in_arr)
@@ -547,7 +544,7 @@
       (if (= current_topic nil)
         (println "Please specify a park or ask about a bird")
         (detect_keywords user_in_arr current_topic)))
-  (when (= current_topic "bird_id") (dog_taxonomy)))
+  (when (= current_topic "bird_id") (bird_taxonomy)))
 
 ;;detection of keywords and questions being asked
 (defn detect_keywords [user_in_arr park]
