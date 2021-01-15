@@ -482,8 +482,36 @@
 (defn setp_kinskeho [] (def current_park :Kinskeho_zahrada))
 (defn setp_birdID [] (def current_park "bird_id"))
 
-;;;;;;;;;;;;;;;;;;;;DOG TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defn bird_taxonomy [] (println "BIRD TAXONOMY DEBUG"))
+;;;;;;;;;;;;;;;;;;;;BIRD TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(def position_in_tree nil)
+
+(def bird_decision_tree {
+  :q "Was the bird bigger than a cellphone?"
+  :yes {:q "Did it have a long orange beak?"
+      :yes {:q "Was the bird mostly white?"
+          :yes "Mute Swan"
+          :no "Grey Heron"}
+      :no {:q "Is the skin around the birds beak yellow?"
+          :yes {:q "Was the skin around its eyes yellow as well?"
+                :yes "Peregine Falcon"
+                :no {:q "Did the bird have brown wings with black spots?"
+                    :yes "Kestrel"
+                    :no "Common Buzzard"}}
+          :no {:q "Was the bird predominantly black and white?"
+              :yes {:q "Did it have a blue-gray bill?"
+                    :yes "Tufted Duck"
+                    :no {:q "Did the bird have a black head with a mainly white body?"
+                        :yes "Black-headed Gull"
+                        :no "Magpie"}}
+              :no "NOT FINISHED"}}}
+  :no "NOT FINISHED"
+  })
+
+(defn bird_taxonomy [user_in_arr]
+  (if (= position_in_tree nil)
+    (do
+      (println "This is the bird identification mode, please answer with only 'yes' and 'no'"))
+    (println "NOT FINISHED")))
 
 ;;topic detection decides what park is being discussed or if a dog is being identified
 (defn topic_handler [user_in_arr]
