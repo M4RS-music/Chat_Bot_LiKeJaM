@@ -474,16 +474,16 @@
 
 ;;detection of park
 ;;remembers what park is being discussed until a new one is mentioned
-(def current_park nil)
+(def current_topic nil)
 (defn setp_bertramka [] (def current_park :Bertramka))
 (defn setp_frantiskanska [] (def current_park :Frantiskanska_zahrada))
 (defn setp_obora [] (def current_park :Obora_hvezda))
 (defn setp_kampa [] (def current_park :Kampa))
 (defn setp_kinskeho [] (def current_park :Kinskeho_zahrada))
-(defn setp_dogID [] (def current_park "dog_id"))
+(defn setp_birdID [] (def current_park "bird_id"))
 
 ;;;;;;;;;;;;;;;;;;;;DOG TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defn dog_taxonomy [] (println "DOG TAXONOMY DEBUG"))
+(defn bird_taxonomy [] (println "BIRD TAXONOMY DEBUG"))
 
 ;;topic detection decides what park is being discussed or if a dog is being identified
 (defn topic_handler [user_in_arr]
@@ -493,36 +493,33 @@
       (do
         ;;(println "DEBUG BERTRAMKA DETECTED")
         (setp_bertramka)
-        (detect_keywords user_in_arr current_park))
+        (detect_keywords user_in_arr current_topic))
     (arr_contains? user_in_arr "frantiskanska")
       (do
         ;;(println "DEBUG FRANTISKANKA DETECTED")
         (setp_frantiskanska)
-        (detect_keywords user_in_arr current_park))
+        (detect_keywords user_in_arr current_topic))
     (arr_contains? user_in_arr "obora")
       (do
         ;;(println "DEBUG OBORA DETECTED")
         (setp_obora)
-        (detect_keywords user_in_arr current_park))
+        (detect_keywords user_in_arr current_topic))
     (arr_contains? user_in_arr "kampa")
       (do
         ;;(println "DEBUG KAMPA DETECTED")
         (setp_kampa)
-        (detect_keywords user_in_arr current_park))
+        (detect_keywords user_in_arr current_topic))
     (arr_contains? user_in_arr "kinskeho")
       (do
         (setp_kinskeho)
-        (detect_keywords user_in_arr current_park))
-    (and (arr_contains? user_in_arr "dog") (or
-                                              (arr_contains? user_in_arr "identify")
-                                              (arr_contains? user_in_arr "breed")
-                                              (arr_contains? user_in_arr "type")))
-      (setp_dogID)
+        (detect_keywords user_in_arr current_topic))
+    (arr_contains? user_in_arr "bird")
+      (setp_birdID)
     :else
-      (if (= current_park nil)
-        (println "Please specify a park")
-        (detect_keywords user_in_arr current_park)))
-  (when (= current_park "dog_id") (dog_taxonomy)))
+      (if (= current_topic nil)
+        (println "Please specify a park or ask about a bird")
+        (detect_keywords user_in_arr current_topic)))
+  (when (= current_topic "bird_id") (dog_taxonomy)))
 
 ;;detection of keywords and questions being asked
 (defn detect_keywords [user_in_arr park]
