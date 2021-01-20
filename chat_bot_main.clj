@@ -501,8 +501,32 @@
                     :no {:q "Did the bird have a black head with a mainly white body?"
                         :yes "Black-headed Gull"
                         :no "Magpie"}}
-              :no "NOT FINISHED"}}}
-  :no "NOT FINISHED"
+              :no {:q "Did the bird have a yellow bill?"
+                  :yes "Malard Duck"
+                  :no "Pigeon"}}}}
+  :no {:q "Did the bird have blue coloring?"
+      :yes {:q "Is the birds beak long and pointy?"
+            :yes "Kingfisher"
+            :no "Blue Tit"}
+      :no {:q "Was the bird black?"
+          :yes {:q "Did it have an orange beak?"
+              :yes "Blackbird"
+              :no {:q "Did the bird have a glossy coat?"
+                  :yes "Starling"
+                  :no "Jackdaw"}}
+          :no {:q "Was there a red coloring on the bird?"
+              :yes {:q "Did the bird have a yellow-green coloring on its wings?"
+                    :yes "Green Woodpecker"
+                    :no "Great-spotted Woodpecker"}
+              :no {:q "Did the bird have parts of brown coloring?"
+                  :yes {:q "Did it have a long black tail?"
+                        :yes "Long-tailed Tit"
+                        :no {:q "Did the bird have white plumage on its breast?"
+                            :yes "House Sparrow"
+                            :no "Wren"}}
+                  :no {:q "Did the bird have yellow plumage on its breast?"
+                      :no "Great Tit"
+                      :yes "Nuthatch"}}}}}
   })
 
 ;;;;;;;;;;;;;;;;;;;;BIRD TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -637,7 +661,7 @@
   (println ">Hello, I LiKe JaM. What would you like to know about the parks in Prague?")
   (println "================================================================")
   (loop [user_in (read-line)]
-    (if (not (= user_in "Goodbye"))
+    (if (not (or (= user_in "exit") (= user_in "q")))
       (do
         (println "----------------------------------------------------------------")
         (topic_handler (string_to_vector user_in))
