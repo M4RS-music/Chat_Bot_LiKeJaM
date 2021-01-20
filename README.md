@@ -14,7 +14,7 @@ You can also ask the chatbot to help you identify a bird and it will guide you
 through a short taxonomy of the local species.
 
 To exit the chatbot type:
-*Goodbye*
+*exit* or *q*
 
 ## AUTHORS
 Kevin Dhëmbi  
