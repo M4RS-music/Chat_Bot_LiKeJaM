@@ -482,9 +482,6 @@
 (defn setp_kinskeho [] (def current_topic :Kinskeho_zahrada))
 (defn setp_birdID [] (def current_topic "bird_id"))
 
-;;;;;;;;;;;;;;;;;;;;BIRD TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(def position_in_tree (bird_decision_tree))
-
 ;;contains the series of questions and answers needed to identify a bird
 (def bird_decision_tree {
   :q "Was the bird bigger than a cellphone?"
@@ -508,29 +505,33 @@
   :no "NOT FINISHED"
   })
 
+;;;;;;;;;;;;;;;;;;;;BIRD TAXONOMY DECISION TREE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(def position_in_tree bird_decision_tree)
+
 ;;handles the navigation of the decision tree
 (defn bird_taxonomy [user_in_arr]
     (cond
       (arr_contains? user_in_arr "yes")
         (do
           (def position_in_tree (:yes position_in_tree))
-          (if (= (:q position_in_tree) nil))
+          (if (= (:q position_in_tree) nil)
             (do
               (println position_in_tree)
               (def current_topic nil))
-            (println (:q position_in_tree)))
+            (println (:q position_in_tree))))
       (arr_contains? user_in_arr "no")
         (do
           (def position_in_tree (:no position_in_tree))
-          (if (= (:q position_in_tree) nil))
+          (if (= (:q position_in_tree) nil)
             (do
               (println position_in_tree)
               (def current_topic nil))
-            (println (:q position_in_tree)))
+            (println (:q position_in_tree))))
         :else
           (do
             (println (:q position_in_tree))
             (println "Please reply with 'yes' or 'no' answers only"))))
+
 (declare detect_keywords)
 ;;topic detection decides what park is being discussed or if a dog is being identified
 (defn topic_handler [user_in_arr]
