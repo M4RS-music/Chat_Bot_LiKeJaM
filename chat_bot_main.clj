@@ -541,6 +541,10 @@
           (if (= (:q position_in_tree) nil)
             (do
               (println position_in_tree)
+              (println " ~('>
+  / )
+   4"
+)
               (def current_topic nil))
             (println (:q position_in_tree))))
       (arr_contains? user_in_arr "no")
@@ -549,6 +553,10 @@
           (if (= (:q position_in_tree) nil)
             (do
               (println position_in_tree)
+              (println " ~('>
+  / )
+   4"
+)
               (def current_topic nil))
             (println (:q position_in_tree))))
         :else
