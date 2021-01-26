@@ -149,7 +149,7 @@
   
   (def birds_info
     {
-        :Mute Swan {
+        :Mute_Swan {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak true
                  :Mostly_White true
@@ -161,7 +161,7 @@
                  :Black_Head_White_Body false
                  :Yellow_Bill false
                 }
-        :Grey Heron {
+        :Grey_Heron {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak true
                  :Mostly_White false
@@ -173,7 +173,7 @@
                  :Black_Head_White_Body false
                  :Yellow_Bill false
                 }
-        :Peregine Falcon {
+        :Peregine_Falcon {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak false
                  :Mostly_White false
@@ -197,7 +197,7 @@
                  :Black_Head_White_Body false
                  :Yellow_Bill false
                 }
-        :Common Buzzard {
+        :Common_Buzzard {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak false
                  :Mostly_White false
@@ -209,7 +209,7 @@
                  :Black_Head_White_Body false
                  :Yellow_Bill false
                 }
-        :Tuffed Duck {
+        :Tuffed_Duck {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak false
                  :Mostly_White false
@@ -221,7 +221,7 @@
                  :Black_Head_White_Body false
                  :Yellow_Bill false
                 }
-        :Balck-Headed Gull {
+        :Balck_Headed_Gull {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak false
                  :Mostly_White false
@@ -245,7 +245,7 @@
              :Black_Head_White_Body false
              :Yellow_Bill false
             }
-        :Malard Duck {
+        :Malard_Duck {
                  :Bigger_Than_A_Cellphone true
                  :Long_Orange_Beak false
                  :Mostly_White false
@@ -282,7 +282,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :Blue Tit {
+        :Blue_Tit {
              :Bigger_Than_A_Cellphone false
              :Blue_Colour true
              :Beak_Is_Long_And_Pointy false
@@ -296,7 +296,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
             }
-        :Black Bird {
+        :Black_Bird {
              :Bigger_Than_A_Cellphone true
              :Blue_Colour false
              :Beak_Is_Long_And_Pointy false
@@ -338,7 +338,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :Green Woodpecker {
+        :Green_Woodpecker {
              :Bigger_Than_A_Cellphone false
              :Beak_Is_Long_And_Pointy false
              :Blue_Colour
@@ -352,7 +352,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :Great Spotted Woodpecker {
+        :Great_Spotted_Woodpecker {
              :Bigger_Than_A_Cellphone false
              :Beak_Is_Long_And_Pointy false
              :Blue_Colour false
@@ -366,7 +366,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :Long-Tailed Tit {
+        :Long_Tailed_Tit {
              :Bigger_Than_A_Cellphone false
              :Beak_Is_Long_And_Pointy false
              :Blue_Colour false
@@ -380,7 +380,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :House Sparrow {
+        :House_Sparrow {
              :Bigger_Than_A_Cellphone false
              :Beak_Is_Long_And_Pointy false
              :Blue_Colour false 
@@ -408,7 +408,7 @@
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
              }
-        :Great Tit {
+        :Great_Tit {
              :Bigger_Than_A_Cellphone false
              :Beak_Is_Long_And_Pointy false
              :Blue_Colour false
