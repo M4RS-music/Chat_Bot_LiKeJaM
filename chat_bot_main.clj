@@ -145,7 +145,131 @@
 				    :Website "https://www.praha.eu/jnp/cz/co_delat_v_praze/parky/kinskeho_zahrada/kinskeho_text.html"
 				    }
 	  }
-	)
+  )
+  
+  (def birds_info
+    {
+        :Mute Swan {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak true
+                 :Mostly_White true
+                 :Yellow_Beak true
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                }
+        :Grey Heron {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak true
+                 :Mostly_White false
+                 :Yellow_Beak true
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                }
+        :Peregine Falcon {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak true
+                 :Yellow_Skin true
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                 }
+        :Kestrel {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak true
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots true
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                }
+        :Common Buzzard {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak true
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                }
+        :Tuffed Duck {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak false
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White true
+                 :Blue_And_Gray_Bill true
+                 :Black_Head_White_Body false
+                 :Yellow_Bill false
+                }
+        :Balck-Headed Gull {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak false
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White true
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body true
+                 :Yellow_Bill false
+                 }
+        :Magpie {
+             :Bigger_Than_A_Cellphone true
+             :Long_Orange_Beak false
+             :Mostly_White false
+             :Yellow_Beak false
+             :Yellow_Skin false
+             :Brown_Wings_And_Black_Spots false
+             :Black_And_White true
+             :Blue_And_Gray_Bill false
+             :Black_Head_White_Body false
+             :Yellow_Bill false
+            }
+        :Malard Duck {
+                 :Bigger_Than_A_Cellphone true
+                 :Long_Orange_Beak false
+                 :Mostly_White false
+                 :Yellow_Beak false
+                 :Yellow_Skin false
+                 :Brown_Wings_And_Black_Spots false
+                 :Black_And_White false
+                 :Blue_And_Gray_Bill false
+                 :Black_Head_White_Body false
+                 :Yellow_Bill true
+                }
+        :Pigeon {
+             :Bigger_Than_A_Cellphone true
+             :Long_Orange_Beak false
+             :Mostly_White false
+             :Yellow_Beak false
+             :Yellow_Skin false
+             :Brown_Wings_And_Black_Spots false
+             :Black_And_White false
+             :Blue_And_Gray_Bill false
+             :Black_Head_White_Body false
+             :Yellow_Bill false
+             }
+    })
 
 ;;Responses
 
