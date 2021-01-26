@@ -276,7 +276,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -290,7 +290,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -305,7 +305,7 @@
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
              :Parts_Of_Brown_Colouring false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
              :Yellow_Plumage_On_Breasts false
@@ -318,7 +318,7 @@
              :Orange_Beak false
              :Glossy_Coat true
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -332,7 +332,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -346,7 +346,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird true
-             :Parts_Of_Yellow-Green_Colouring true
+             :Parts_Of_Yellow_Green_Colouring true
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -360,7 +360,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird true
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow-_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -374,7 +374,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring true
              :Long_Black_tail true 
              :White_Plumage_On_Breasts false
@@ -388,7 +388,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring true
              :Long_Black_tail false
              :White_Plumage_On_Breasts true
@@ -402,7 +402,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring true
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -416,7 +416,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
@@ -430,7 +430,7 @@
              :Orange_Beak false
              :Glossy_Coat false
              :Red_Colouring_On_Bird false
-             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Yellow_Green_Colouring false
              :Parts_Of_Brown_Colouring false
              :Long_Black_tail false
              :White_Plumage_On_Breasts false
