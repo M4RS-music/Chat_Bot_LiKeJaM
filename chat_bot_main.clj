@@ -270,7 +270,7 @@
              :Yellow_Bill false
         :Kingfisher {
              :Bigger_Than_A_Cellphone false
-             :Blue_Colour: true
+             :Blue_Colour true
              :Beak_Is_Long_And_Pointy true
              :Black_Colour false
              :Orange_Beak false
@@ -283,7 +283,7 @@
              }
         :Blue Tit {
              :Bigger_Than_A_Cellphone false
-             :Blue_Colour: true
+             :Blue_Colour true
              :Beak_Is_Long_And_Pointy false
              :Black_Colour false
              :Orange_Beak false
@@ -296,7 +296,7 @@
             }
         :Black Bird {
              :Bigger_Than_A_Cellphone true
-             :Blue_Colour: false
+             :Blue_Colour false
              :Beak_Is_Long_And_Pointy false
              :Black_Colour true
              :Orange_Beak true
