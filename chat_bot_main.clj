@@ -268,6 +268,163 @@
              :Blue_And_Gray_Bill false
              :Black_Head_White_Body false
              :Yellow_Bill false
+        :Kingfisher {
+             :Bigger_Than_A_Cellphone false
+             :Blue_Colour: true
+             :Beak_Is_Long_And_Pointy true
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Blue Tit {
+             :Bigger_Than_A_Cellphone false
+             :Blue_Colour: true
+             :Beak_Is_Long_And_Pointy false
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+            }
+        :Black Bird {
+             :Bigger_Than_A_Cellphone true
+             :Blue_Colour: false
+             :Beak_Is_Long_And_Pointy false
+             :Black_Colour true
+             :Orange_Beak true
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Starling {
+             :Bigger_Than_A_Cellphone false
+             :Blue_Colour false
+             :Beak_Is_Long_And_Pointy false
+             :Black_Colour true
+             :Orange_Beak false
+             :Glossy_Coat true
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+            }
+        :Jackdaw {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour false
+             :Black_Colour true
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Green Woodpecker {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird true
+             :Parts_Of_Yellow-Green_Colouring true
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Great Spotted Woodpecker {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour false
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird true
+             :Parts_Of_Yellow-Green_Colouring false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Long-Tailed Tit {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring true
+             :Long_Black_tail true 
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :House Sparrow {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour false 
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring true
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts true
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Wren {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring true
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Great Tit {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour false
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts false
+             }
+        :Nuthatch {
+             :Bigger_Than_A_Cellphone false
+             :Beak_Is_Long_And_Pointy false
+             :Blue_Colour
+             :Black_Colour false
+             :Orange_Beak false
+             :Glossy_Coat false
+             :Red_Colouring_On_Bird false
+             :Parts_Of_Brown_Colouring false
+             :Long_Black_tail false
+             :White_Plumage_On_Breasts false
+             :Yellow_Plumage_On_Breasts true
              }
     })
 
